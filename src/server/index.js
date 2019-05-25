@@ -12,7 +12,7 @@ app.use(etag())
 app.use(Static('dist/static'))
 
 app.use(async ctx => {
-  ctx.body = render()
+  ctx.body = render(ctx)
 })
 
 app.listen(3000)

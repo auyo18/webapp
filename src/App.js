@@ -1,10 +1,14 @@
 import React from 'react'
-import Home from './components/Home'
+import {renderRoutes} from 'react-router-config'
 
-const App = () => {
+const App = props => {
+  console.log(props)
   return (
       <div>
-        <Home />
+        <p>header</p>
+        {
+          renderRoutes(props.route.routes)
+        }
       </div>
   )
 }
