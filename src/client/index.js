@@ -4,7 +4,9 @@ import {BrowserRouter} from 'react-router-dom'
 import {renderRoutes} from "react-router-config"
 import routes from '../router/routes'
 import {Provider} from "mobx-react"
-import appState from "../store"
+import {createStoreMap} from "../store/store"
+
+const appState = createStoreMap()
 
 const App = () => (
     <Provider appState={appState}>

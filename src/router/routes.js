@@ -21,7 +21,7 @@ const routes = [
         component: NotFound,
         exact: true,
         loadData: '',
-        key: 'home'
+        key: 'login'
       },
       {
         component: NotFound
