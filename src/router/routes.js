@@ -13,15 +13,15 @@ const routes = [
         path: '/',
         component: Home,
         exact: true,
-        loadData: '',
+        loadData: Home.loadData,
         key: 'home'
       },
       {
-        path: '/login',
-        component: NotFound,
+        path: '/topic',
+        component: TopicList,
         exact: true,
-        loadData: '',
-        key: 'login'
+        loadData: TopicList.loadData,
+        key: 'topic'
       },
       {
         component: NotFound
