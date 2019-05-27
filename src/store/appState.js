@@ -5,7 +5,7 @@ import {getArticleList} from "../api/article"
 export default class AppState {
   constructor({count, name, homeArticleList, siteInfo} = {
     count: 0,
-    name: ['JaMie!'],
+    name: 'JaMie!',
     homeArticleList: [],
     siteInfo: {}
   }) {

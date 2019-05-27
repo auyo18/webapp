@@ -1,3 +1,5 @@
 import AppStateClass from './appState'
 
-export const AppState = AppStateClass
+const getState = initState => new AppStateClass(initState)
+
+export {getState}

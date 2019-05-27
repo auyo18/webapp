@@ -1,29 +1,47 @@
 import React, {Component} from 'react'
 import {observer, inject} from "mobx-react"
 import PropTypes from 'prop-types'
-import {AppState} from "../../store/store"
+import {Tabs} from 'antd-mobile'
+import AppState from '../../store/appState'
+import Container from '../layout/container'
+import TopicListItem from './listItem'
 
 @inject('appState') @observer
 
 class TopicList extends Component {
-  changeName = e => {
-    this.props.appState.changeName(e.target.value)
+  constructor(props) {
+    super(props)
+    this.state = {
+      tabs: [
+        {title: '全部'},
+        {title: '分享'},
+        {title: '工作'},
+        {title: '问答'},
+        {title: '精品'},
+        {title: '测试'}
+      ]
+    }
   }
 
   render() {
     return (
-        <div>
-          <p>this is TopicList!!
-            <input type="text" onChange={this.changeName} />
-            <span>{this.props.appState.msg}</span>
-          </p>
-          <button onClick={() => {
-            alert(123)
-          }}>
-            click
-          </button>
-        </div>
+        <Container>
+          <Tabs
+              tabs={this.state.tabs}
+              onChange={(tab, index) => {
+                console.log('onChange', index, tab)
+              }}>
+          </Tabs>
+          <TopicListItem onClick={this.listItemClick}
+                         topic={{title: 'this is title', username: 'JaMie', reply_count: 20, visit_count: 30,create_at:'20190527',tab:'share'}}/>
+          <TopicListItem onClick={this.listItemClick}
+                         topic={{title: 'this is title', username: 'JaMie', reply_count: 20, visit_count: 30,create_at:'20190527',tab:'share'}}/>
+        </Container>
     )
+  }
+
+  listItemClick = () => {
+    console.log('listItemClick')
   }
 }
 

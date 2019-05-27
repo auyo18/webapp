@@ -4,11 +4,12 @@ import {BrowserRouter} from 'react-router-dom'
 import {renderRoutes} from "react-router-config"
 import routes from '../router/routes'
 import {Provider} from "mobx-react"
-import {AppState} from "../store/store"
+import {getState} from "../store/store"
+import 'antd-mobile/dist/antd-mobile.css'
 
 const initState = window.__STATE__ || {}
 
-const appState = new AppState(initState)
+const appState = getState(initState)
 
 const App = () => (
     <Provider appState={appState}>
@@ -19,4 +20,4 @@ const App = () => (
 )
 
 
-ReactDom.hydrate(<App />, document.getElementById('root'))
+ReactDom.hydrate(<App/>, document.getElementById('root'))

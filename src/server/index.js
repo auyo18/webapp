@@ -5,12 +5,12 @@ import Static from 'koa-static'
 import conditional from 'koa-conditional-get'
 import etag from 'koa-etag'
 import {render} from "../utils"
-import {AppState} from "../store/store"
+import {getState} from "../store/store"
 import routes from '../router/routes'
 
 const app = new koa()
 
-const appState = new AppState()
+const appState = getState()
 
 app.use(conditional())
 app.use(etag())
@@ -23,7 +23,6 @@ app.use(async ctx => {
     let matchedRoute = matchedRoutes[i]
     matchedRoute.route.loadData && await matchedRoute.route.loadData(appState)
   }
-
   ctx.body = render(ctx, appState, {})
 })
 

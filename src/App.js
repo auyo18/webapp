@@ -1,11 +1,11 @@
 import React from 'react'
 import {renderRoutes} from 'react-router-config'
-import Header from './components/Header'
+import AppBar from "./views/layout/appBar"
 
 const App = props => {
   return (
       <div>
-        <Header />
+        <AppBar/>
         {
           renderRoutes(props.route.routes)
         }
